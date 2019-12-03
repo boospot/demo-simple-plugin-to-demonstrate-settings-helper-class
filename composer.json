@@ -1,0 +1,5 @@
+{
+    "require": {
+        "boospot/boo-settings-helper": "dev-master"
+    }
+}

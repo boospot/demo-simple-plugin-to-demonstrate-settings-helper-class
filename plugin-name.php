@@ -12,23 +12,23 @@ Author URI: https://github.com/boospot/
 function plugin_menu_using_boo_setting_helper_simple() {
 
 	// Require Settings Helper Class
-	require_once 'vendor/boo-settings-helper/class-boo-settings-helper.php';
+	require_once 'vendor/autoload.php';
 
 	// Create Config Array
-	$settings_config_array             = array();
-	$settings_config_array['prefix']   = 'plugin_prefix_';
-	$settings_config_array['tabs']     = true;
-	$settings_config_array['menu']     = array(
+	$config_array             = array();
+	$config_array['prefix']   = 'plugin_prefix_';
+	$config_array['tabs']     = true;
+	$config_array['menu']     = array(
 		'page_title' => __( 'Plugin Name Settings', 'plugin-name' ),
 		'menu_title' => __( 'Plugin Name', 'plugin-name' ),
 		'capability' => 'manage_options',
 		'slug'       => 'plugin-name',
-//		'icon'       => 'dashicons-performance',
+		'icon'       => 'dashicons-performance',
 //		'position'   => 10,
 //		'submenu'    => true,
 //		'parent'     => 'edit.php?post_type=event',
 	);
-	$settings_config_array['sections'] = array(
+	$config_array['sections'] = array(
 		array(
 			'id'    => 'general_section',
 			'title' => __( 'General Settings', 'plugin-name' ),
@@ -40,7 +40,7 @@ function plugin_menu_using_boo_setting_helper_simple() {
 			'desc'  => __( 'These are advance settings for Plugin Name', 'plugin-name' )
 		)
 	);
-	$settings_config_array['fields']   = array(
+	$config_array['fields']   = array(
 		'general_section' => array(
 			array(
 				'id'                => 'text_field_id',
@@ -215,7 +215,7 @@ function plugin_menu_using_boo_setting_helper_simple() {
 			)
 		)
 	);
-	$settings_config_array['links']    = array(
+	$config_array['links']    = array(
 		'plugin_basename' => plugin_basename( __FILE__ ),
 		'action_links'    => array(
 			array(
@@ -236,7 +236,7 @@ function plugin_menu_using_boo_setting_helper_simple() {
 	);
 
 	// Pass Config Array to Class Constructor
-	$settings_helper = new Boo_Settings_Helper( $settings_config_array );
+	$settings_helper = new Boo_Settings_Helper( $config_array );
 
 }
 
